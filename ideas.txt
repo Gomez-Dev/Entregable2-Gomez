@@ -1,0 +1,17 @@
+/*
+
+La ideda del simulador es que te solicite ingreso y egresos de dinere separando los categorias las cuales se integraran en un objeto
+y luego se extraera su valor(PRECIO) para calcular cuanto dinero te queda.
+
+Integrar control de flujo para realizar una validacion y saber si el resto es superior, ingual o menor a un porcentaje del ingreso
+el cual sera definido por el usuario.
+
+Devolver por consola el resultado de cada interacción con el usuario.
+
+// const arr = [];// En este array se crearan objetos a los cuales se le daran datos que se extraeran para el resultado final
+
+agrergar validacion para la seccion de tipo de gasto y verificar que no se gaste dodo el dinero, en tal caso mostrar un alert para informar.
+
+verificar eror de calculo al ingresar monto negativo
+
+*/
