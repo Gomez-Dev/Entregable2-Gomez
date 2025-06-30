@@ -1,3 +1,210 @@
-body{
-    background-color: #292C3E;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Paleta profesional */
+:root {
+  --bg-main: #1e1e2f;
+  --bg-card: #2c2c3a;
+  --text-primary: #ffffff;
+  --text-secondary: #bbbbbb;
+  --accent: #007bff;
+  --accent-hover: #0056b3;
+  --green-dark: #1e5e32;
+  --red-dark: #6b1a1a;
+  --table-header: #2f3542;
+  --table-row: #1e272e;
+  --table-border: #3d3d3d;
+  --table-text: #a4b0be;
+  --table-title: #00a8ff;
+}
+
+/* Body */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--bg-main), var(--bg-card));
+  color: var(--text-primary);
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Contenedor de cards */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  align-items: stretch;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card */
+.card {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 350px;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* Encabezados personalizados */
+.card-header-ingresos {
+  background-color: var(--green-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.card-header-gastos {
+  background-color: var(--red-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.card-header-ingresos img,
+.card-header-gastos img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+/* Contenido de la card */
+.card-title {
+  color: var(--accent);
+  text-align: center;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.card .list-group-item {
+  background-color: var(--bg-card);
+  color: var(--text-secondary);
+  border-color: #444;
+}
+
+/* Botones */
+.btn-primary {
+  background-color: var(--accent);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Tabla profesional */
+table.table {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: var(--table-row);
+  color: var(--text-primary);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.table thead {
+  background-color: var(--table-header);
+}
+
+.table th,
+.table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--table-border);
+}
+
+.table th {
+  color: var(--table-title);
+  font-weight: 600;
+}
+
+.table td {
+  color: var(--table-text);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .table thead {
+    display: none;
+  }
+
+  .table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--table-border);
+  }
+
+  .table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: var(--text-secondary);
+  }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding-top: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  border-top: 1px solid #444;
 }

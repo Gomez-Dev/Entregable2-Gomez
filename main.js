@@ -7,6 +7,7 @@ console.log(`Tu dinero actual es $${sueldo}`);
 
 let funcionando = true;
 
+// Verifica el tipo de gasto y evalua si es corectamente cargado y ejecuta el calculo para el resto
 function misGastos() {
   const tipoGasto = ["Servicios", "Comida", "Alquiler", "Transporte"];
   console.log("Define tu tipo de gasto: ");
@@ -45,12 +46,15 @@ function misGastos() {
       return;
     }
   }
-  //alert("Agregando otro gasto...");
+
   calcularResto();
 }
 
 misGastos();
 
+// Funcion para ingrsos(Recordar que debe agregarse a su monto actual)
+
+// Esta porción de codigo verifica si quiere agregar más gastos o no
 function otroGasto() {
   while (funcionando) {
     let nuevoGasto = prompt("¿Desea agregar otro gasto?\n1 - Sí\n2 - No");
@@ -70,7 +74,6 @@ function otroGasto() {
   }
 }
 
-//misGastos();
 otroGasto();
 
 console.log("Programa finalizado!");

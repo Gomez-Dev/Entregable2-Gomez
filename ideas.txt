@@ -14,4 +14,6 @@ agrergar validacion para la seccion de tipo de gasto y verificar que no se gaste
 
 verificar eror de calculo al ingresar monto negativo
 
+Overview para completar campos
+
 */
