@@ -17,3 +17,5 @@ verificar eror de calculo al ingresar monto negativo
 Overview para completar campos
 
 */
+
+Se agrega fotmunario de ingresos y gastos, falta agregar la manipulacion del domen el mormulario inferior y localstorage

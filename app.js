@@ -8,6 +8,3 @@
 // const miGasto2 = new miGasto("auto", "febrero", 4500);
 
 // console.log(miGasto1, miGasto2);
-
-
-const formulario = document.querySelector(#)

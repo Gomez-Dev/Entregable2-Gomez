@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <script src="main.js" defer></script> -->
+    <script src="app.js"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -11,7 +12,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
-    <!--  -->
+
     <title>Gestor de Gastos</title>
   </head>
 
@@ -32,36 +33,48 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">Ingresos</h5>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-          </ul>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card’s content.sdsd
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <p class="card-text">Introduzca los datos a continuación</p>
+
+          <!-- Formulario para Ingresos -->
+          <form class="form-ingreso list-group list-group-flush">
+            <label for="nombre-ingreso">Nombre:</label>
+            <input type="text" id="nombre-ingreso" required />
+
+            <label for="monto-ingreso">Monto:</label>
+            <input type="number" id="monto-ingreso" required />
+
+            <label for="fecha-ingreso">Fecha:</label>
+            <input type="date" id="fecha-ingreso" required />
+
+            <button class="btn btn-primary" type="submit">
+              Agregar Ingreso
+            </button>
+          </form>
         </div>
       </div>
 
-      <!-- Card para Gastos-->
-      <div class="card" style="width: 18rem">
+      <!-- Card para Gastos -->
+      <div class="card gastos" style="width: 18rem">
         <div class="card-header-gastos">
           <img src="cash-coin.svg" alt="Gastos" />
         </div>
         <div class="card-body">
           <h5 class="card-title">Gastos</h5>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-          </ul>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card’s content.sdsd
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <p class="card-text">Introduzca los datos a continuación</p>
+
+          <!-- Formulario para Gastos -->
+          <form class="form-gasto list-group list-group-flush">
+            <label for="nombre-gasto">Nombre:</label>
+            <input type="text" id="nombre-gasto" required />
+
+            <label for="monto-gasto">Monto:</label>
+            <input type="number" id="monto-gasto" required />
+
+            <label for="fecha-gasto">Fecha:</label>
+            <input type="date" id="fecha-gasto" required />
+
+            <button class="btn btn-primary" type="submit">Agregar Gasto</button>
+          </form>
         </div>
       </div>
     </div>
@@ -99,7 +112,7 @@
     </table>
 
     <footer>
-      <h1>NO VEMO EN DESNAY</h1>
+      <h1>footer</h1>
     </footer>
   </body>
 </html>
