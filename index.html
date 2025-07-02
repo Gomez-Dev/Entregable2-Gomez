@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <script src="main.js" defer></script> -->
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
+    <!-- <script src="app2.js"></script> -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -35,8 +36,10 @@
           <h5 class="card-title">Ingresos</h5>
           <p class="card-text">Introduzca los datos a continuación</p>
 
-          <!-- Formulario para Ingresos -->
-          <form class="form-ingreso list-group list-group-flush">
+          <form
+            id="agregar-ingreso"
+            class="form-ingreso list-group list-group-flush"
+          >
             <label for="nombre-ingreso">Nombre:</label>
             <input
               class="form-control"
@@ -77,8 +80,10 @@
           <h5 class="card-title">Gastos</h5>
           <p class="card-text">Introduzca los datos a continuación</p>
 
-          <!-- Formulario para Gastos -->
-          <form class="form-gasto list-group list-group-flush">
+          <form
+            id="agregar-gasto"
+            class="form-gasto list-group list-group-flush"
+          >
             <label for="nombre-gasto">Nombre:</label>
             <input
               class="form-control"
@@ -109,7 +114,7 @@
     <div class="saldo-container m-3">
       <h4>Saldo actual: <span id="saldo-actual">$0</span></h4>
     </div>
-    <!-- Tabla de datos en pantalla -->
+
     <table class="table">
       <thead>
         <tr>
