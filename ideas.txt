@@ -23,3 +23,6 @@ Se agrega fotmunario de ingresos y gastos, falta agregar la manipulacion del dom
 agregar boton para elimirar un dato de la tabla y volver el contador a 0
 resetear los formularios
 cambiar el formato de la fecha que lo toma al reves
+crear funcion para modificar salso actual sumando y restando los datos obtenidos de los div
+cambiar el orden de como se cargan los datos en la tabla para que aparezca el ultimo al inicio de la misma
+agregar un boton de eliminar en cada linea de la tabla para poder borrar un dato mal cargado
