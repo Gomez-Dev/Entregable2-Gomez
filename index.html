@@ -38,13 +38,28 @@
           <!-- Formulario para Ingresos -->
           <form class="form-ingreso list-group list-group-flush">
             <label for="nombre-ingreso">Nombre:</label>
-            <input type="text" id="nombre-ingreso" required />
+            <input
+              class="form-control"
+              type="text"
+              id="nombre-ingreso"
+              required
+            />
 
             <label for="monto-ingreso">Monto:</label>
-            <input type="number" id="monto-ingreso" required />
+            <input
+              class="form-control"
+              type="number"
+              id="monto-ingreso"
+              required
+            />
 
             <label for="fecha-ingreso">Fecha:</label>
-            <input type="date" id="fecha-ingreso" required />
+            <input
+              class="form-control"
+              type="date"
+              id="fecha-ingreso"
+              required
+            />
 
             <button class="btn btn-primary" type="submit">
               Agregar Ingreso
@@ -65,13 +80,23 @@
           <!-- Formulario para Gastos -->
           <form class="form-gasto list-group list-group-flush">
             <label for="nombre-gasto">Nombre:</label>
-            <input type="text" id="nombre-gasto" required />
+            <input
+              class="form-control"
+              type="text"
+              id="nombre-gasto"
+              required
+            />
 
             <label for="monto-gasto">Monto:</label>
-            <input type="number" id="monto-gasto" required />
+            <input
+              class="form-control"
+              type="number"
+              id="monto-gasto"
+              required
+            />
 
             <label for="fecha-gasto">Fecha:</label>
-            <input type="date" id="fecha-gasto" required />
+            <input class="form-control" type="date" id="fecha-gasto" required />
 
             <button class="btn btn-primary" type="submit">Agregar Gasto</button>
           </form>
@@ -80,35 +105,22 @@
     </div>
 
     <!-- Gastos e Ingresos -->
+
+    <div class="saldo-container m-3">
+      <h4>Saldo actual: <span id="saldo-actual">$0</span></h4>
+    </div>
+    <!-- Tabla en pantalla -->
     <table class="table">
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Gasto</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Nombre</th>
           <th scope="col">Monto</th>
           <th scope="col">Fecha</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td data-label="First">Mark</td>
-          <td data-label="First">Otto</td>
-          <td data-label="First">@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td data-label="First">Thornton</td>
-          <td data-label="First">@fat</td>
-          <td data-label="First">Jacob</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td data-label="First">John</td>
-          <td data-label="First">Doe</td>
-          <td data-label="First">@social</td>
-        </tr>
-      </tbody>
+      <tbody id="tabla-registros"></tbody>
     </table>
 
     <footer>
