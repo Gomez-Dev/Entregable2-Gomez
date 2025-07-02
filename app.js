@@ -1,7 +1,7 @@
 const formIngreso = document.querySelector(".form-ingreso");
 const formGasto = document.querySelector(".form-gasto");
 
-// mostrar lo datos cargados
+// muestra los datos cargados
 datosGuardados();
 
 // formularios
@@ -39,4 +39,30 @@ function guardarEnLocalStorage(clave, nuevoItem) {
   listaActual.push(nuevoItem);
   localStorage.setItem(clave, JSON.stringify(listaActual));
   datosGuardados();
+}
+
+// mostrar tabla en pantalla
+function datosGuardados() {
+  const ingresos = JSON.parse(localStorage.getItem("ingresos")) || [];
+  const gastos = JSON.parse(localStorage.getItem("gastos")) || [];
+
+  const tabla = document.getElementById("tabla-registros");
+  if (!tabla)
+    return console.error("No se encontró la tabla con id 'tabla-registros'");
+
+  tabla.innerHTML = "";
+
+  let contador = 1;
+
+  [...ingresos, ...gastos].forEach((item) => {
+    const fila = document.createElement("tr");
+    fila.innerHTML = `
+          <th scope="row">${contador++}</th>
+          <td>${item.tipo}</td>
+          <td>${item.nombre}</td>
+          <td>$${item.monto}</td>
+          <td>${item.fecha}</td>
+        `;
+    tabla.appendChild(fila);
+  });
 }
