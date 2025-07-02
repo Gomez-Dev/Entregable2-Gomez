@@ -22,3 +22,4 @@ Se agrega fotmunario de ingresos y gastos, falta agregar la manipulacion del dom
 
 agregar boton para elimirar un dato de la tabla y volver el contador a 0
 resetear los formularios
+cambiar el formato de la fecha que lo toma al reves
