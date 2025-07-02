@@ -1,79 +1,68 @@
-const nombre = prompt("Cual es tu nombre: ");
-console.log(`Hola ${nombre} a contunuación carga sueldo`);
+const formIngreso = document.querySelector(".form-ingreso");
+const formGasto = document.querySelector(".form-gasto");
 
-let sueldo = parseInt(prompt("Ingreso: "));
-let sueldoInicial = sueldo;
-console.log(`Tu dinero actual es $${sueldo}`);
+// muestra los datos cargados
+datosGuardados();
 
-let funcionando = true;
+// formularios
+formIngreso.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-// Verifica el tipo de gasto y evalua si es corectamente cargado y ejecuta el calculo para el resto
-function misGastos() {
-  const tipoGasto = ["Servicios", "Comida", "Alquiler", "Transporte"];
-  console.log("Define tu tipo de gasto: ");
+  const ingreso = {
+    tipo: "Ingreso",
+    nombre: document.getElementById("nombre-ingreso").value,
+    monto: parseFloat(document.getElementById("monto-ingreso").value),
+    fecha: document.getElementById("fecha-ingreso").value,
+  };
 
-  let idx = 1;
-  for (let gasto of tipoGasto) {
-    console.log(idx + ". " + gasto);
-    idx++;
-  }
-  let definir;
-  while (true) {
-    definir = parseInt(
-      prompt("Ingresa el número que corresponda al tipo de gasto: ")
-    );
+  guardarEnLocalStorage("ingresos", ingreso);
+  formIngreso.reset();
+});
 
-    if (!isNaN(definir) && definir >= 1 && definir <= tipoGasto.length) {
-      break;
-    } else {
-      alert("El número ingresado no es valido, intenta de nuevo!!!");
-    }
-  }
-  let egreso = parseInt(prompt("Monto gastado: "));
+formGasto.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-  let tipoSeleccionado = tipoGasto[definir - 1];
-  console.log(`Gasto cargado: ${tipoSeleccionado} - $${egreso}`);
+  const gasto = {
+    tipo: "Gasto",
+    nombre: document.getElementById("nombre-gasto").value,
+    monto: parseFloat(document.getElementById("monto-gasto").value),
+    fecha: document.getElementById("fecha-gasto").value,
+  };
 
-  function calcularResto() {
-    sueldo = sueldo - egreso;
-    console.log(`Su resto es $${sueldo}`);
+  guardarEnLocalStorage("gastos", gasto);
+  formGasto.reset();
+});
 
-    if (sueldo <= 0) {
-      alert(
-        `Te quedaste sin dinero. Saldo actual es: $${sueldo}. El programa se cerrará.`
-      );
-      funcionando = false;
-      return;
-    }
-  }
-
-  calcularResto();
+// guardar datos tabla
+function guardarEnLocalStorage(clave, nuevoItem) {
+  const listaActual = JSON.parse(localStorage.getItem(clave)) || [];
+  listaActual.push(nuevoItem);
+  localStorage.setItem(clave, JSON.stringify(listaActual));
+  datosGuardados();
 }
 
-misGastos();
+// mostrar tabla en pantalla
+function datosGuardados() {
+  const ingresos = JSON.parse(localStorage.getItem("ingresos")) || [];
+  const gastos = JSON.parse(localStorage.getItem("gastos")) || [];
 
-// Funcion para ingrsos(Recordar que debe agregarse a su monto actual)
+  const tabla = document.getElementById("tabla-registros");
+  if (!tabla)
+    return console.error("No se encontró la tabla con id 'tabla-registros'");
 
-// Esta porción de codigo verifica si quiere agregar más gastos o no
-function otroGasto() {
-  while (funcionando) {
-    let nuevoGasto = prompt("¿Desea agregar otro gasto?\n1 - Sí\n2 - No");
+  tabla.innerHTML = "";
 
-    if (nuevoGasto === "1") {
-      misGastos();
-      if (funcionando) {
-        alert("Agregando otro gasto...");
-      }
-    } else if (nuevoGasto === "2") {
-      alert(`Programa finalizado. Sueldo final: $${sueldo}`);
-      funcionando = false;
-    } else {
-      alert("Opción no válida. El programa se cerrará.");
-      funcionando = false;
-    }
-  }
+  let contador = 1;
+
+  [...ingresos, ...gastos].forEach((item) => {
+    const fila = document.createElement("tr");
+    fila.innerHTML = `
+          <th scope="row">${contador++}</th>
+          <td>${item.tipo}</td>
+          <td>${item.nombre}</td>
+          <td>$${item.monto}</td>
+          <td>${item.fecha}</td>
+        `;
+    tabla.appendChild(fila);
+  });
 }
-
-otroGasto();
-
-console.log("Programa finalizado!");
