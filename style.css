@@ -208,3 +208,63 @@ footer {
   font-size: 0.9rem;
   border-top: 1px solid #444;
 }
+
+/* Carrusel de cotización dólar en footer */
+
+#carousel-dolares {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+
+  scrollbar-width: thin;
+  scrollbar-color: #007bff transparent;
+
+  background-color: #2c2c3a; /* ejemplo, tu variable --bg-card */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+  max-width: 100%;
+  margin: 0.5rem auto 1rem;
+
+  scroll-behavior: smooth;
+}
+
+#carousel-dolares::-webkit-scrollbar {
+  height: 6px;
+}
+
+#carousel-dolares::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#carousel-dolares::-webkit-scrollbar-thumb {
+  background-color: #007bff; /* ejemplo, tu variable --accent */
+  border-radius: 3px;
+}
+
+.cotizacion-item {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  background-color: #f5f5f5;
+  color: #1e1e2f; /* ejemplo, tu variable --bg-main */
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.6);
+  font-size: 0.85rem;
+  user-select: none;
+  cursor: default;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-width: 140px;
+  text-align: center;
+}
+
+.cotizacion-item:hover {
+  background-color: #1e1e2f; /* --bg-main */
+  color: #f5f5f5;
+  box-shadow: 0 0 10px #0056b3; /* --accent-hover */
+}
